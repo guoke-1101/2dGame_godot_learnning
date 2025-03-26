@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=3 uid="uid://2cvid36nryp7"]
+
+[ext_resource type="Script" uid="uid://c4cyq5o48ksd0" path="res://AssetBundle/Sprites/gameManager.gd" id="1_b2bpf"]
+[ext_resource type="Texture2D" uid="uid://dxal81ccosmqg" path="res://AssetBundle/Sprites/ForestBackground.png" id="1_iukft"]
+[ext_resource type="PackedScene" uid="uid://bdi85tv6dxja7" path="res://Scenes/player.tscn" id="2_gl6un"]
+[ext_resource type="PackedScene" uid="uid://d33dvgb1rwofg" path="res://Scenes/slime.tscn" id="3_j5yw3"]
+[ext_resource type="PackedScene" uid="uid://bx7skjmc5xst7" path="res://Scenes/Bullet.tscn" id="4_kldst"]
+[ext_resource type="FontFile" uid="uid://bjm25nlsqsj5k" path="res://AssetBundle/Uranus_Pixel_11Px.ttf" id="6_7lihs"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gl6un"]
+distance = -129.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_j5yw3"]
+normal = Vector2(0, 1)
+distance = 43.6057
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kldst"]
+normal = Vector2(-1, 0)
+distance = -15.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b2bpf"]
+normal = Vector2(1, 0)
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("spawn_timer", "score_lable", "ggame_over_lable")]
+script = ExtResource("1_b2bpf")
+slime_scene = ExtResource("3_j5yw3")
+spawn_timer = NodePath("Timer")
+score_lable = NodePath("CanvasLayer/Label")
+ggame_over_lable = NodePath("CanvasLayer/Label2")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(-128, 2)
+texture = ExtResource("1_iukft")
+
+[node name="background" type="Sprite2D" parent="background"]
+position = Vector2(240, 0)
+texture = ExtResource("1_iukft")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.48, 2.48)
+
+[node name="Boundary" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_gl6un")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_j5yw3")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D3"]
+position = Vector2(217, 83)
+shape = SubResource("WorldBoundaryShape2D_kldst")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Boundary"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary/StaticBody2D4"]
+position = Vector2(-232, 82)
+shape = SubResource("WorldBoundaryShape2D_b2bpf")
+
+[node name="player" parent="." instance=ExtResource("2_gl6un")]
+position = Vector2(-58, 93)
+
+[node name="Area2D" parent="." instance=ExtResource("4_kldst")]
+position = Vector2(-19, 28)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 59.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("6_7lihs")
+theme_override_font_sizes/font_size = 46
+text = "Score:2"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -23.5
+offset_right = 113.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.609295, 0.705386, 0.310159, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("6_7lihs")
+theme_override_font_sizes/font_size = 46
+text = "GAME OVER"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Label2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = 51.0
+offset_right = 157.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.609295, 0.705386, 0.310159, 1)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("6_7lihs")
+theme_override_font_sizes/font_size = 21
+text = "create by guoke"
+
+[connection signal="timeout" from="Timer" to="." method="_spawn_slime"]
