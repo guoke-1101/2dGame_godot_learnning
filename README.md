@@ -1,0 +1,2 @@
+# 2dGame_godot_learnning
+了解如何使用godot制作2d游戏
