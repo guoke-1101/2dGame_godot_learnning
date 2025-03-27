@@ -1,10 +1,15 @@
-# 2dGame_godot_learnning
+# myfirstgame
 参考资料 https://merxon22.github.io/GodotArchive/zh/posts/beginner_2d/
 ## 游戏场景创建
 * Sprite节点
 * Camera2D节点
 * AnimatedSprite2D节点
+<<<<<<< HEAD:README.md
   
+=======
+
+
+>>>>>>> 20c560a (添加卡牌游戏):myfirstgame/README.md
 如何创建游戏场景
 
 ## gd script编程
@@ -13,7 +18,12 @@
 * action动作输入
 * CharacterBody2D节点
 * 变量
+<<<<<<< HEAD:README.md
   
+=======
+
+
+>>>>>>> 20c560a (添加卡牌游戏):myfirstgame/README.md
 如何通过输入映射设置键盘控制
 
 ## 碰撞体
@@ -21,7 +31,12 @@
 * if语句
 * StaticBody2D节点
 * CollisionShape2D节点
+<<<<<<< HEAD:README.md
   
+=======
+
+
+>>>>>>> 20c560a (添加卡牌游戏):myfirstgame/README.md
 1. 如何添加玩家跑步动画
 2. 如何通过设置碰撞体限制玩家的移动范围
 
@@ -31,7 +46,12 @@
 * 函数func
 * 倒计时Timer
 * 重新加载当前场景
+<<<<<<< HEAD:README.md
   
+=======
+
+
+>>>>>>> 20c560a (添加卡牌游戏):myfirstgame/README.md
 如何通过信号和函数实现玩家与敌人的碰撞检测
 
 ## Timer节点
@@ -39,7 +59,12 @@
 * 生成PackedScene场景
 * if条件语句里的and与or
 * queue_free()摧毁节点
+<<<<<<< HEAD:README.md
   
+=======
+
+
+>>>>>>> 20c560a (添加卡牌游戏):myfirstgame/README.md
 如何通过Timer节点实现自动攻击。
 
 ## 分组功能
@@ -47,7 +72,12 @@
 * GameManager
 * randf_range
 * clamp()
+<<<<<<< HEAD:README.md
   
+=======
+
+
+>>>>>>> 20c560a (添加卡牌游戏):myfirstgame/README.md
 如何使用godot的分组功能来生成敌人。
 
 ## UI
@@ -55,7 +85,12 @@
 * Canvas Layer节点
 * Label节点
 * 节点的visible设置
+<<<<<<< HEAD:README.md
   
+=======
+
+
+>>>>>>> 20c560a (添加卡牌游戏):myfirstgame/README.md
 如何在游戏中添加UI画布和通过代码控制UI文字的显示内容
 
 ## 音乐音效
